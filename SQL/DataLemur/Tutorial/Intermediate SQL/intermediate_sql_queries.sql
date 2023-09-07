@@ -69,6 +69,8 @@ FROM candidates
 GROUP BY candidate_id
 HAVING COUNT(skill) > 2;
 
+
+
 /************************************************************/
 /* SQL DISTINCT */
 
@@ -204,3 +206,23 @@ FROM page_likes;
 
 /************************************************************/
 /* DATE FUNCTIONS */
+
+/* Average Post Hiatus (Part 1).sql
+Given a table of Facebook posts, for each user who posted at least twice in 2021, write a query to find the number of days between each user’s first post of the year and last post of the year in the year 2021. 
+Output the user and number of the days between each user's first and last post. */
+SELECT user_id, EXTRACT(DAY FROM (MAX(post_date)-MIN(post_date))) AS time_diff
+FROM posts
+WHERE EXTRACT(YEAR FROM post_date) = '2021'
+GROUP BY user_id
+HAVING COUNT(post_id) >= 2;
+
+/* Second Day Confirmation
+Assume you're given tables with information about TikTok user sign-ups and confirmations through email and text. 
+New users on TikTok sign up using their email addresses, and upon sign-up, each user receives a text message confirmation to activate their account.
+Write a query to display the user IDs of those who did not confirm their sign-up on the first day, but confirmed on the second day.
+Definition: action_date refers to the date when users activated their accounts and confirmed their sign-up through text messages. */
+SELECT e.user_id
+FROM emails e
+JOIN texts t ON e.email_id = t.email_id
+WHERE EXTRACT(DAY FROM e.signup_date)+1 = EXTRACT(DAY FROM t.action_date)
+  AND signup_action = 'Confirmed';
