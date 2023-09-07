@@ -31,6 +31,7 @@ SELECT MAX(open)
 FROM stock_prices
 WHERE ticker = 'NFLX';
 
+
 /************************************************************/
 /* SQL GROUP BY */
 
@@ -51,6 +52,7 @@ FROM candidates
 GROUP BY skill
 ORDER BY candidate_count DESC;
 
+
 /************************************************************/
 /* SQL HAVING */
 
@@ -70,7 +72,6 @@ GROUP BY candidate_id
 HAVING COUNT(skill) > 2;
 
 
-
 /************************************************************/
 /* SQL DISTINCT */
 
@@ -80,6 +81,7 @@ Write a query using COUNT DISTINCT to identify the number of unique products wit
 SELECT category, COUNT(DISTINCT(product))
 FROM product_spend
 GROUP BY category;
+
 
 /************************************************************/
 /* SQL ARITHMETIC */
@@ -111,6 +113,7 @@ WHERE ABS(((close-open)/open * 100)) > 10
 GROUP BY ticker
 ORDER BY ticker_count DESC;
 
+
 /************************************************************/
 /* MATH FUNCTIONS */
 
@@ -123,8 +126,10 @@ FROM pharmacy_sales
 WHERE manufacturer = 'Merck'
 ORDER BY unit_cost;
 
+
 /************************************************************/
 /* SQL DIVISION */
+
 
 /************************************************************/
 /* SQL NULL */
@@ -138,6 +143,7 @@ Assumptions:
 SELECT part, assembly_step
 FROM parts_assembly
 WHERE finish_date IS NULL;
+
 
 /************************************************************/
 /* SQL CASE */
@@ -173,6 +179,7 @@ SELECT SUM(
   END) AS mobile_views
 FROM viewership;
 
+
 /************************************************************/
 /* SQL JOINS */
 
@@ -203,6 +210,7 @@ FROM pages
 EXCEPT
 SELECT page_id
 FROM page_likes;
+
 
 /************************************************************/
 /* DATE FUNCTIONS */
