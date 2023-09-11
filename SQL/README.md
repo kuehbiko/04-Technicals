@@ -1,5 +1,5 @@
 # SQL
-This folder is a collection of completed and upcoming SQL practice questions, course assignments and challenges that I have taken as part of my data analysis learning journey.
+This folder is a collection of completed and upcoming SQL practice questions, course assignments and challenges that I have taken as part of my data analysis learning journey. 
 
 ### Table of Contents
 
